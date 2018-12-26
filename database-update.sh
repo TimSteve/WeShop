@@ -1,0 +1,2 @@
+dotnet ef migrations add init --project src/Infrasture/WeShop.Infrasture.Data/ --startup-project src/Presentation/WeShop.WebApi/WeShop.WebApi.csproj
+dotnet ef database update --project src/Infrasture/WeShop.Infrasture.Data/ --startup-project src/Presentation/WeShop.WebApi/WeShop.WebApi.csproj
