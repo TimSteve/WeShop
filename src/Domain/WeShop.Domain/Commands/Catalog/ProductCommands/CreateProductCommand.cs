@@ -13,8 +13,8 @@ namespace WeShop.Domain.Commands.Catalog.ProductCommands
             decimal price,
             string pictureFileName,
             string pictureUri,
-            long productTypeId,
             long productBrandId,
+            long productTypeId,
             bool isPublished)
         {
             Name = name;
@@ -22,8 +22,8 @@ namespace WeShop.Domain.Commands.Catalog.ProductCommands
             Price = price;
             PictureFileName = pictureFileName;
             PictureUri = pictureUri;
-            ProductTypeId = productTypeId;
             ProductBrandId = productBrandId;
+            ProductTypeId = productTypeId;
             IsPublished = isPublished;
         }
 

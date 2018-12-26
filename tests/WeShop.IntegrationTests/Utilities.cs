@@ -11,7 +11,7 @@ namespace WeShop.IntegrationTests
             var brands = GetSeedingCatalogBrands();
             var catalogTypes = GetSeedingCatalogTypes();
             var products = GetSeedingCatalogItems(brands, catalogTypes);
-            db.ProductBrands.AddRange();
+            db.ProductBrands.AddRange(brands);
             db.ProductTypes.AddRange(catalogTypes);
             db.Products.AddRange(products);
             db.SaveChanges();

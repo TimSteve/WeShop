@@ -34,11 +34,13 @@ namespace WeShop.Domain.Services
             var anyName = await _productRepo.AnyAsync(x => x.Name == product.Name);
             if (anyName)
                 return Result.Fail<string>("该产品已经存在，请勿重复添加。");
+
             var anyBrand = await _brandRepo.AnyAsync(x => x.Id == product.ProductBrandId);
-            if (anyBrand)
+            if (!anyBrand)
                 return Result.Fail<string>("无效的品牌。");
+
             var anyType = await _typeRepo.AnyAsync(x => x.Id == product.ProductTypeId);
-            if (anyType)
+            if (!anyType)
                 return Result.Fail<string>("无效的类型。");
 
             return Result.Ok();
