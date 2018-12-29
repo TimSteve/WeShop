@@ -12,7 +12,7 @@ script:
   - dotnet build
   - dotnet test
   - dotnet publish -c Release -o ./publish
-  - docker build -t goodboyymh/weshop:latest .
+  - docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_VERSION} .
 
 global:
   - DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
@@ -21,7 +21,7 @@ global:
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD;
-    docker push goodboyymh/weshop:latest;
+    docker push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_VERSION};
     fi
 
 os:
