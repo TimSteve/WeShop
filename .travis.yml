@@ -2,15 +2,26 @@ language: csharp
 mono: none
 sudo: required
 dist: trusty
-dotnet: 2.2.101
+dotnet: 2.2.0
 
 before_install:
   - dotnet --version
+
+services:
+  - docker
 
 script:
   - dotnet restore
   - dotnet build
   - dotnet test
+  - dotnet publish -c Release -o ./publish
+  - docker build -t goodboyymh/weshop:latest .
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD;
+    docker push goodboyymh/weshop:latest;
+    fi
 
 branches:
   only:
