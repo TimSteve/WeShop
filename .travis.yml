@@ -1,0 +1,17 @@
+language: csharp
+mono: none
+sudo: required
+dist: trusty
+dotnet: 2.2.101
+
+before_install:
+  - dotnet --version
+  
+script
+  - dotnet restore
+  - dotnet build
+  - dotnet test
+ 
+branches:
+  only:
+    - master
