@@ -53,7 +53,7 @@ namespace WeShop.Infrasture.Data.Migrations
 
                     b.HasIndex("ProductTypeId1");
 
-                    b.ToTable("Catalog");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("WeShop.Domain.Entities.ProductBrand", b =>

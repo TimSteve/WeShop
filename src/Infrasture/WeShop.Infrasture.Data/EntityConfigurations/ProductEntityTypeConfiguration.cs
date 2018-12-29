@@ -9,7 +9,7 @@ namespace WeShop.Infrasture.Data.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            builder.ToTable("Catalog");
+            builder.ToTable("Product");
 
             builder.HasKey(ci => ci.Id);
 

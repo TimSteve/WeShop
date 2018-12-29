@@ -9,7 +9,7 @@ using WeShop.Infrasture.Data;
 namespace WeShop.Infrasture.Data.Migrations
 {
     [DbContext(typeof(WeShopDbContext))]
-    [Migration("20181225063358_init")]
+    [Migration("20181229163224_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,7 +55,7 @@ namespace WeShop.Infrasture.Data.Migrations
 
                     b.HasIndex("ProductTypeId1");
 
-                    b.ToTable("Catalog");
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("WeShop.Domain.Entities.ProductBrand", b =>

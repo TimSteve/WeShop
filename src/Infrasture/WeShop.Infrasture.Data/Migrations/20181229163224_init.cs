@@ -35,7 +35,7 @@ namespace WeShop.Infrasture.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Catalog",
+                name: "Product",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
@@ -53,27 +53,27 @@ namespace WeShop.Infrasture.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Catalog", x => x.Id);
+                    table.PrimaryKey("PK_Product", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Catalog_ProductBrand_ProductBrandId",
+                        name: "FK_Product_ProductBrand_ProductBrandId",
                         column: x => x.ProductBrandId,
                         principalTable: "ProductBrand",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Catalog_ProductBrand_ProductBrandId1",
+                        name: "FK_Product_ProductBrand_ProductBrandId1",
                         column: x => x.ProductBrandId1,
                         principalTable: "ProductBrand",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Catalog_ProductType_ProductTypeId",
+                        name: "FK_Product_ProductType_ProductTypeId",
                         column: x => x.ProductTypeId,
                         principalTable: "ProductType",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Catalog_ProductType_ProductTypeId1",
+                        name: "FK_Product_ProductType_ProductTypeId1",
                         column: x => x.ProductTypeId1,
                         principalTable: "ProductType",
                         principalColumn: "Id",
@@ -81,30 +81,30 @@ namespace WeShop.Infrasture.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Catalog_ProductBrandId",
-                table: "Catalog",
+                name: "IX_Product_ProductBrandId",
+                table: "Product",
                 column: "ProductBrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Catalog_ProductBrandId1",
-                table: "Catalog",
+                name: "IX_Product_ProductBrandId1",
+                table: "Product",
                 column: "ProductBrandId1");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Catalog_ProductTypeId",
-                table: "Catalog",
+                name: "IX_Product_ProductTypeId",
+                table: "Product",
                 column: "ProductTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Catalog_ProductTypeId1",
-                table: "Catalog",
+                name: "IX_Product_ProductTypeId1",
+                table: "Product",
                 column: "ProductTypeId1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Catalog");
+                name: "Product");
 
             migrationBuilder.DropTable(
                 name: "ProductBrand");

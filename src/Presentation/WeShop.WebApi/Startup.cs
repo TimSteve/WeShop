@@ -4,10 +4,12 @@ using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using WeShop.Bootstrapper;
+using WeShop.WebApi.HealthChecks;
 
 namespace WeShop.WebApi
 {
@@ -22,6 +24,7 @@ namespace WeShop.WebApi
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHealthChecks();
             services.AddInfrastructureModule(Configuration);
             services.AddApplicationModule();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -48,6 +51,7 @@ namespace WeShop.WebApi
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseHealthChecks("/working");
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
