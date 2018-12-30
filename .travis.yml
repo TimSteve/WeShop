@@ -2,16 +2,11 @@ language: csharp
 mono: none
 sudo: required
 dist: xenial
-dotnet: 2.2
 
 services:
   - docker
 
 script:
-  - dotnet restore
-  - dotnet build
-  - dotnet test
-  - dotnet publish -c Release -o ./publish
   - docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_VERSION} .
 
 global:
